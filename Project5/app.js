@@ -2,38 +2,41 @@ console.log("test....");
 
 var TheShappyVariableOfDoom = document.getElementById("Shappy");
 var TheWappyVariableOfDoom = TheShappyVariableOfDoom.getContext("2d");
-TheWappyVariableOfDoom.beginPath();
-TheWappyVariableOfDoom.arc(150,150,120,0,6.28);
-TheWappyVariableOfDoom.closePath();
-TheWappyVariableOfDoom.lineWidth = 10;	
-TheWappyVariableOfDoom.strokeStyle = "black";
-TheWappyVariableOfDoom.stroke();
-TheWappyVariableOfDoom.fillStyle = 'burlywood';
-TheWappyVariableOfDoom.fill();	
-TheWappyVariableOfDoom.beginPath();
-TheWappyVariableOfDoom.arc(69,20,28,0,6.28);
-TheWappyVariableOfDoom.closePath();
-TheWappyVariableOfDoom.stroke();
-TheWappyVariableOfDoom.fill();
-TheWappyVariableOfDoom.beginPath();
-TheWappyVariableOfDoom.arc(230,20,28,0,6.28);
-TheWappyVariableOfDoom.closePath();
-TheWappyVariableOfDoom.stroke();
-TheWappyVariableOfDoom.fill();
 
-var TheShappyWappyVariable = document.getElementById("RealShappy");
-var TheShappyWappyVariableOfDoom = TheShappyWappyVariable.getContext("2d");
-var AnythingYouWant = new Image();
-AnythingYouWant.src = 'zr_default.png';
-AnythingYouWant.onload = function(){
-	TheShappyWappyVariableOfDoom.drawImage(AnythingYouWant, 0,0, 250, 250);
+var WIDTH = 600;
+var HEIGHT = 400;
 
-	TheShappyWappyVariableOfDoom.font = "30px Times New Roman";
-	TheShappyWappyVariableOfDoom.strokeStyle = "LawnGreen";
-	TheShappyWappyVariableOfDoom.strokeText("ZombsRoyale Default",2,270);
-	TheShappyWappyVariableOfDoom.strokeText("Family Reunion.",2,290);
-};
+var x;
+var y;
+var mx;
+var my;
 
-function hideText() {
-	TheShappyWappyVariableOfDoom.clearRect (2,270,290,30);
-};
+function animate(){
+	x = 300;
+	y = 200;
+	mx = 3;
+	my = 4;
+	return setInterval(draw, 20);
+}
+
+function circle(x, y, r){
+	TheWappyVariableOfDoom.beginPath();
+	TheWappyVariableOfDoom.arc(x, y, r, 0, 6.28);
+	TheWappyVariableOfDoom.closepath();
+	TheWappyVariableOfDoom.stroke();
+	TheWappyVariableOfDoom.fillStyle = "green";
+	TheWappyVariableOfDoom.fill();
+}
+
+function draw(){
+	TheWappyVariableOfDoom.clearRect(0, 0, WIDTH, HEIGHT);
+	circle(x, y, 30);
+	if (x + mx < 0 || x + mx >WIDTH) {
+		mx = -mx;
+	}
+	if (y+ my < 0 || y + my > HEIGHT) {	
+}
+
+x += mx;
+y += my;
+}
